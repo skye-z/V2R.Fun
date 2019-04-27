@@ -1,0 +1,186 @@
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+body {
+    background-color: #145374;
+    overflow: hidden;
+}
+
+body>.row>div {
+    margin: 0px;
+}
+
+#menu {
+    height: 500px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#content {
+    height: 500px;
+    background-color: #F4F4F4;
+    padding: 0px 20px 0px 10px;
+}
+
+#content>.row {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 360px;
+}
+
+#content>.row>.col-xs-9 {
+    -webkit-app-region: drag;
+    height: 25px;
+    padding: 0px;
+}
+
+#content>.row>.col-xs-3 {
+    text-align: right;
+    padding-left: 0px;
+}
+
+#control>.btn {
+    border-radius: 0px;
+    padding: 2px 14px;
+}
+
+#control>.btn-warning:focus,
+#control>.btn-warning:hover,
+#control>.btn-warning:active {
+    box-shadow: none;
+    background-color: #efb165;
+}
+
+#control>.btn-danger:focus,
+#control>.btn-danger:hover,
+#control>.btn-danger:active {
+    box-shadow: none;
+    background-color: #ff7c7c;
+}
+
+#logo {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    color: #F4F4F4;
+    cursor: default;
+    margin-bottom: 40px;
+}
+
+#menu_btn_list .btn {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: #145374;
+    color: #F4F4F4;
+}
+
+#version {
+    text-align: center;
+    color: #8290b9;
+    margin-top: 200px;
+}
+
+#menu_btn_list .btn:hover,
+#menu_btn_list .btn:focus {
+    background-color: #5588a3;
+    color: #F4F4F4;
+}
+
+#menu_btn_list .btn:active,
+#menu_btn_list .btn.active {
+    background-color: #F4F4F4;
+    color: #145374;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .15);
+}
+
+#menu_btn_list .btn.active {
+    cursor: default;
+}
+
+#model_connect {
+    text-align: center;
+}
+
+#model_connect .btn {
+    padding: 30px 35px;
+    border-radius: 100px;
+}
+
+#model_connect .btn i {
+    font-size: 70px;
+}
+
+#model_connect h1 {
+    cursor: default;
+    color: #145374;
+    margin: 80px 25px 10px 25px;
+}
+
+#model_connect h5 {
+    cursor: default;
+    color: #b5b5b5;
+    margin-bottom: 30px;
+}
+
+#model>div {
+    display: none;
+}
+
+.min_title {
+    margin: 7px 0px 10px 0px;
+    color: #145374;
+    font-size: 16px;
+    text-shadow: 2px 2px 5px #81c2e4;
+}
+
+.panel {
+    box-shadow: 5px 5px 5px 5px #e8e8e8;
+    border: none;
+    cursor: default;
+    margin-bottom: 10px;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+#line_list {
+    overflow-y: scroll;
+    height: 465px;
+}
+
+#line_list .panel * {
+    margin: 0px;
+}
+
+#line_list .panel p {
+    color: #a9a9a9;
+}
+
+#line_list .panel .btn {
+    padding: 0px 5px;
+}
+
+.btn {
+    border: none;
+}
+
+#loger_connect {
+    padding: 5px;
+    height: 455px;
+    background-color: #e8e8e8;
+    color: #333333;
+    overflow-y: scroll;
+}
+
+#connect,#kill{
+    display: none;
+}
+
+.panel.active{
+    box-shadow: inset 0 0 10px 0px #69b960;
+}

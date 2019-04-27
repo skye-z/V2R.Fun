@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cn" unselectable="on" onselectstart="return false;" oncontextmenu="self.event.returnValue=false">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>V2r.Fun</title>
+    <link href="resources/css/zui.min.css" rel="stylesheet">
+    <link href="resources/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row">
+        <div id="menu" class="col-xs-4">
+            <div id="logo">
+                V2r.Fun
+            </div>
+            <div id="menu_btn_list">
+                <a class="btn btn-block active" to="connect"><i class="icon-rocket"></i> 连接</a>
+                <a class="btn btn-block" to="line"><i class="icon-globe"></i> 线路</a>
+                <a class="btn btn-block" to="loger"><i class="icon-dashboard"></i> 日志</a>
+                <a class="btn btn-block"><i class="icon-shield"></i> 规则</a>
+                <a class="btn btn-block"><i class="icon-cog"></i> 设置</a>
+            </div>
+            <div id="version">
+                v1.0.1
+            </div>
+        </div>
+        <div id="content" class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-9">
+
+                </div>
+                <div class="col-xs-3">
+                    <div id="control">
+                        <a class="btn btn-warning" onclick="Hide()"><i class="icon-minus"></i></a><a class="btn btn-danger" onclick="Close()"><i
+                                class="icon-off"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div id="model">
+                <div id="model_connect" style="display: block;">
+                    <h1 id="connect_tips">未连接</h1>
+                    <h5 id="line_name" onclick="Open('line')">请先选择线路</h5>
+                    <a id="connect" class="btn btn-success"><i class="icon icon-link"></i></a>
+                    <a id="kill" onclick="Kill()" class="btn btn-danger"><i class="icon icon-unlink"></i></a>
+                    <a id="self_check" onclick="Open('loger')" class="btn"><i class="icon icon-spin icon-cog"></i></a>
+                </div>
+                <div id="model_line">
+                    <h1 class="min_title">线路</h1>
+                    <div id="line_list">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <h5><b class="pull-left">Test Config</b><span
+                                        class="label label-info pull-right">KCP</span></h5>
+                                <p>127.110.110.110:10999</p>
+                                <p><b class="pull-left"><span class="label label-badge">VMESS</span> <span
+                                            class="label label-badge label-success">125ms</span></b><a
+                                        class="btn pull-right"><i class="icon icon-cog"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="model_loger">
+                    <h1 class="min_title">日志</h1>
+                    <div id="loger_connect">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>window.$ = window.jQuery = require("jquery");</script>
+    <script src="resources/js/zui.min.js"></script>
+    <script src="resources/js/self_check.js"></script>
+    <script src="resources/js/connect.js"></script>
+    <script src="resources/js/index.js"></script>
+</body>
+
+</html>

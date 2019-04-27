@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn" unselectable="on" onselectstart="return false;" oncontextmenu="self.event.returnValue=false">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Loading | V2r.Fun</title>
+    <link href="resources/css/zui.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #145374;">
+    <h1 style="text-align:center;font-size:40px;margin:48px;color:#F4F4F4;cursor:default;">V2r.Fun</h1>
+    <div class="progress" style="border-radius:0px;height:3px;margin: 0px;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+            style="border-radius:0px;background-color:#5588a3;width: 0%">
+        </div>
+    </div>
+    <script>window.$ = window.jQuery = require("jquery");</script>
+    <script src="resources/js/zui.min.js"></script>
+    <script>
+        var ipc;
+        var Num = 0;
+        $(function () {
+            ipc = require('electron').ipcRenderer;
+            var Interval = setInterval(function () {
+                if (Num != 100) {
+                    Num++;
+                    $(".progress-bar").css("width", Num + "%");
+                }else{
+                    ipc.send("main-open");
+                    clearInterval(Interval);
+                }
+            }, 50);
+        });
+    </script>
+</body>
+
+</html>
