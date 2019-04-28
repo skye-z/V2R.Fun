@@ -2,7 +2,23 @@
 
 ## 界面
 
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-1.png?raw=true)
+> 加载界面
 
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-2.png?raw=true)
+> 主界面>连接
+
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-3.png?raw=true)
+> 主界面>线路
+
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-4.png?raw=true)
+> 主界面>日志
+
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-5.png?raw=true)
+> 主界面>设置
+
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-6.png?raw=true)
+> 主界面>手动添加
 
 ## 进度
 
