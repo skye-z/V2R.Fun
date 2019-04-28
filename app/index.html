@@ -20,7 +20,7 @@
                 <a class="btn btn-block" to="line"><i class="icon-globe"></i> 线路</a>
                 <a class="btn btn-block" to="loger"><i class="icon-dashboard"></i> 日志</a>
                 <a class="btn btn-block"><i class="icon-shield"></i> 规则</a>
-                <a class="btn btn-block"><i class="icon-cog"></i> 设置</a>
+                <a class="btn btn-block" to="setup"><i class="icon-cog"></i> 设置</a>
             </div>
             <div id="version">
                 v1.0.1
@@ -33,8 +33,8 @@
                 </div>
                 <div class="col-xs-3">
                     <div id="control">
-                        <a class="btn btn-warning" onclick="Hide()"><i class="icon-minus"></i></a><a class="btn btn-danger" onclick="Close()"><i
-                                class="icon-off"></i></a>
+                        <a class="btn btn-warning" onclick="Hide()"><i class="icon-minus"></i></a><a
+                            class="btn btn-danger" onclick="Close()"><i class="icon-off"></i></a>
                     </div>
                 </div>
             </div>
@@ -48,17 +48,67 @@
                 </div>
                 <div id="model_line">
                     <h1 class="min_title">线路</h1>
-                    <div id="line_list">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h5><b class="pull-left">Test Config</b><span
-                                        class="label label-info pull-right">KCP</span></h5>
-                                <p>127.110.110.110:10999</p>
-                                <p><b class="pull-left"><span class="label label-badge">VMESS</span> <span
-                                            class="label label-badge label-success">125ms</span></b><a
-                                        class="btn pull-right"><i class="icon icon-cog"></i></a></p>
+                    <div id="line_list"></div>
+                    <div class="btn-group dropup">
+                        <a class="btn btn-block btn-primary" data-toggle="dropdown">添加</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:;" onclick='$("#line_add").show();'>手动添加</a></li>
+                            <li><a href="###">导入文件</a></li>
+                            <li><a href="javascript:;" onclick="import_Qr()">屏幕扫码</a></li>
+                        </ul>
+                    </div>
+                    <div id="line_add">
+                        <div id="add_table">
+                            <div class="input-group">
+                                <span class="input-group-addon">名称</span>
+                                <input type="text" id="add_Name" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">协议</span>
+                                <select id="add_Protocol" class="form-control">
+                                    <option value="vmess">VMess</option>
+                                </select>
+                                <span class="input-group-addon fix-border fix-padding"></span>
+                                <select id="add_Type" class="form-control">
+                                    <option value="tcp">TCP</option>
+                                    <option value="kcp">KCP</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">地址</span>
+                                <input type="text" id="add_Address" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">端口</span>
+                                <input type="text" id="add_Port" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">UUID</span>
+                                <input type="text" id="add_Id" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Alter</span>
+                                <input type="text" id="add_Alter" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">安全</span>
+                                <select id="add_Security" class="form-control">
+                                    <option value="auto">自动 (auto)</option>
+                                    <option value="none">无 (none)</option>
+                                    <option value="aes-128-cfb">AES-CFB</option>
+                                    <option value="aes-128-gcm">AES-GCM</option>
+                                    <option value="chacha20-poly1305">ChaCha</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">TLS</span>
+                                <select id="add_Tls" class="form-control">
+                                    <option value="on">启用</option>
+                                    <option value="">停用</option>
+                                </select>
                             </div>
                         </div>
+                        <a class="btn" id="add_table_cancel">取消</a> <a class="btn btn-primary" id="add">添加</a>
                     </div>
                 </div>
                 <div id="model_loger">
@@ -67,13 +117,37 @@
 
                     </div>
                 </div>
+                <div id="model_setup">
+                    <h1 class="min_title">设置</h1>
+                    <div id="setup_table">
+                        <div class="input-group">
+                            <span class="input-group-addon">监听地址</span>
+                            <input type="text" id="set_address" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">监听端口</span>
+                            <input type="text" id="set_port" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">代理方式</span>
+                            <select id="set_type" class="form-control">
+                                <option value="http">全局代理</option>
+                                <option value="socks">PAC代理</option>
+                            </select>
+                        </div>
+                    </div>
+                    <canvas id="Canvas" style=""></canvas>
+                    <img id="Cache" src="" alt="">
+                </div>
             </div>
         </div>
     </div>
     <script>window.$ = window.jQuery = require("jquery");</script>
     <script src="resources/js/zui.min.js"></script>
+    <script src="resources/js/base64.js"></script>
     <script src="resources/js/self_check.js"></script>
     <script src="resources/js/connect.js"></script>
+    <script src="resources/js/import.js"></script>
     <script src="resources/js/index.js"></script>
 </body>
 

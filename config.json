@@ -1,0 +1,16 @@
+{
+    "client": {},
+    "server": [
+        {
+            "Name": "测试:白嫖节点",
+            "Protocol": "vmess",
+            "Type": "tcp",
+            "Address": "auto.freev2.top",
+            "Port": "56447",
+            "Id": "8907576b-cc77-4d17-bee4-64089e7ae960",
+            "Alter": "64",
+            "Security": "none",
+            "Tls": ""
+        }
+    ]
+}

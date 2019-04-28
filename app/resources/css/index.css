@@ -134,7 +134,7 @@ body>.row>div {
     margin: 7px 0px 10px 0px;
     color: #145374;
     font-size: 16px;
-    text-shadow: 2px 2px 5px #81c2e4;
+    /* text-shadow: 2px 2px 5px #81c2e4; */
 }
 
 .panel {
@@ -150,7 +150,7 @@ body>.row>div {
 
 #line_list {
     overflow-y: scroll;
-    height: 465px;
+    height: 430px;
 }
 
 #line_list .panel * {
@@ -177,10 +177,58 @@ body>.row>div {
     overflow-y: scroll;
 }
 
-#connect,#kill{
+#connect,
+#kill {
     display: none;
 }
 
-.panel.active{
+.panel.active {
     box-shadow: inset 0 0 10px 0px #69b960;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group * {
+    border: none;
+}
+
+.input-group-addon {
+    background-color: #145374;
+    color: #F4F4F4;
+}
+
+.input-group input,.input-group select {
+    background-color: #5588a3;
+    color: #F4F4F4;
+}
+
+.btn-group.dropup {
+    width: 100%;
+}
+
+.dropdown-menu {
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+
+#line_add{
+    display: none;
+    position: fixed;
+    padding: 10px;
+    top: 25px;
+    right: 0px;
+    height: 475px;
+    width: 235px;
+    background-color: #F4F4F4;
+}
+
+#add_table{
+    height: 430px;
+}
+
+#line_add .btn{
+    width: 105px;
 }

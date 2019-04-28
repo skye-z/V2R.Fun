@@ -1,5 +1,5 @@
 // 启动自检
-function SelfCheck(){
+function SelfCheck() {
     $("#loger_connect").empty();
     OutLog("欢迎使用V2r.Fun<br>正在自检,请稍后...<br>");
     fs.mkdir(Path_Core, { recursive: true }, () => { });
@@ -7,7 +7,7 @@ function SelfCheck(){
     var Path = Path_Core + "\\v2ray.exe";
     fs.access(Path, fs.constants.F_OK, (err) => {
         if (err ? 0 : 1 == 1) {
-            workerProcess = exec(Path + " -version", {});
+            workerProcess = child_process.exec(Path + " -version", {});
             workerProcess.stdout.on('data', (data) => {
                 try {
                     var Version = data.split("\n")[0];
@@ -43,36 +43,32 @@ function SelfCheck(){
 function GetConfigList() {
     OutLog("加载连接配置<br>");
     $("#line_list").empty();
-    fs.readdir(Path_Config, (err, files) => {
-        if (err)
-            OutLog("连接配置加载失败<br>");
-        else {
-            for (Num in files) {
-                var Name = files[Num];
-                BuildConfig(Name, JSON.parse(fs.readFileSync(Path_Config + "\\" + Name, 'utf8')));
-            }
-        }
-    });
+    BuildConfig(fs.readFileSync(Path_Config, 'utf8'));
 }
 
 // 构建配置信息
-function BuildConfig(Name, Data) {
-    var Configs = Data.outbounds;
-    var Config;
-    var Protocol;
-    for (Num in Configs) {
-        if (Configs[Num].protocol == "vmess"){
-            Config = Configs[Num];
-            Protocol = "VMESS";
+function BuildConfig(Data) {
+    if (Data != "{}") {
+        var Configs = JSON.parse(Data);
+        if (Configs.server != undefined && Configs.server != "") {
+            for (Num in Configs.server) {
+                var Config = Configs.server[Num];
+                $("#line_list").append(`<div class="panel" config="${Config.Name}"><div class="panel-body"><h5><b class="pull-left">${Config.Name}</b><span class="label label-info pull-right">${Config.Type.toUpperCase()}</span></h5><br><p>${Config.Address}:${Config.Port}</p><p><b class="pull-left"><span class="label label-badge">${Config.Protocol.toUpperCase()}</span> <span class="label label-badge label-success">125ms</span></b><a class="btn pull-right"><i class="icon icon-cog"></i></a></p></div></div>`);
+            };
+            InitPanelAction();
         }
+        if (Configs.client != undefined && Configs.client != "" && Configs.client.length>1) {
+            var Client = Configs.client;
+            $("#set_address").val(Client.Address);
+            $("#set_port").val(Client.Port);
+        }else{
+            $("#set_address").val("127.0.0.1");
+            $("#set_port").val("1998");
+        }
+    }else{
+        $("#set_address").val("127.0.0.1");
+        $("#set_port").val("1998");
     }
-    var Address = Config.settings.vnext[0].address;
-    var Port = Config.settings.vnext[0].port;
-    var Type = "KCP";
-    if(Config.streamSettings!=undefined && Config.streamSettings.network!=undefined)
-    Type = Config.streamSettings.network.toUpperCase();
-    $("#line_list").append(`<div class="panel" config="${Name.replace(".json", "")}"><div class="panel-body"><h5><b class="pull-left">${Name.replace(".json", "")}</b><span class="label label-info pull-right">${Type}</span></h5><br><p>${Address}:${Port}</p><p><b class="pull-left"><span class="label label-badge">${Protocol}</span> <span class="label label-badge label-success">125ms</span></b><a class="btn pull-right"><i class="icon icon-cog"></i></a></p></div></div>`);
-    InitPanelAction();
 }
 
 // 下载内核

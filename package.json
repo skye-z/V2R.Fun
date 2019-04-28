@@ -9,13 +9,16 @@
   },
   "scripts": {
     "start": "electron .",
-    "packager": "electron-packager . WorkLogGT --win --out . --arch=x64 --app-version 1.0.0 --overwrite --electron-version=5.0.0 --icon=./logo.ico"
+    "packager": "electron-packager . V2r.Fun --win --out . --arch=x64 --app-version 1.0.0 --overwrite --electron-version=5.0.0 --icon=./logo.ico"
   },
   "license": "GLP-3.0",
   "dependencies": {
     "adm-zip": "^0.4.13",
-    "http-proxy-to-socks": "^1.1.0",
+    "jimp": "^0.6.4",
     "jquery": "^3.4.0",
-    "request": "^2.88.0"
+    "jsqr": "^1.2.0",
+    "qrcode-reader": "^1.0.4",
+    "request": "^2.88.0",
+    "screenshot-desktop": "^1.7.0"
   }
 }

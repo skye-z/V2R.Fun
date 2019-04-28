@@ -1,11 +1,25 @@
 const {
     BrowserWindow,
     ipcMain,
+    Tray,
+    Menu,
     app
 } = require('electron')
+const path = require('path');
 var Config = require("./package.json");
 var LoadWindow = null;
 var MainWindow = null;
+var TrayMenu = [{
+    label: '关于',
+    click: () => {
+        OpenMinor("关于", "about", false);
+    }
+}, {
+    label: '退出',
+    click: () => {
+        app.quit();
+    }
+}];
 
 app.on('ready', () => {
     LoadWindow = new BrowserWindow({
@@ -48,6 +62,13 @@ ipcMain.on('main-open', () => {
         webPreferences:{
             nodeIntegration: true
         }
+    });
+    AppTray = new Tray(path.join(__dirname, 'logo.ico'));
+    const MenuContext = Menu.buildFromTemplate(TrayMenu);
+    AppTray.setContextMenu(MenuContext);
+    AppTray.setToolTip('Stakcs Accelerator');
+    AppTray.on("click", () => {
+        MainWindow.show();
     });
     MainWindow.loadURL('file://' + __dirname + '/app/index.html');
     MainWindow.webContents.openDevTools();

@@ -27,6 +27,7 @@
                     Num++;
                     $(".progress-bar").css("width", Num + "%");
                 }else{
+                    // 这里写检查程序更新的代码
                     ipc.send("main-open");
                     clearInterval(Interval);
                 }
