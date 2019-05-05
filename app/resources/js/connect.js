@@ -19,6 +19,8 @@ function Connect(Name) {
                     OutLog("===========================<br>程序错误,进程中断<br>");
                 }
             });
+            child_process.exec(`reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1 /f`, {});
+            child_process.exec(`reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" /v ProxyServer /t REG_SZ /d ${$("#set_address").val() + ":" + $("#set_port").val()} /f`, {});
             $("#connect").hide();
             $("#connect").html(`<i class="icon icon-link"></i>`);
             $("#connect").removeClass("disabled");
@@ -29,6 +31,8 @@ function Connect(Name) {
 
 function Kill() {
     try {
+        child_process.exec(`reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0 /f`, {});
+        child_process.exec(`reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings" /v ProxyServer /t REG_SZ /d "" /f`, {});
         $("#connect_tips").text("未连接");
         $("#connect").css("display", "inline-block");
         $("#kill").hide();

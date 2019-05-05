@@ -76,9 +76,19 @@ $("#add").on("click", function () {
             List[List.length] = {Name,Protocol,Type,Address,Port,Id,Alter,Security,Tls};
             FileJson.server = List;
             fs.writeFileSync(Path_Config, JSON.stringify(FileJson), 'utf8');
+            GetConfigList();
             $("#line_add").hide();
         }else{
             alert("名称、地址、端口和Id不能为空");
         }
     }
 });
+
+function LineAddHide(){
+    $("#line_add").hide();
+    $("#add_Name").val("");
+    $("#add_Address").val("");
+    $("#add_Port").val("");
+    $("#add_Id").val("");
+    $("#add_Alter").val("");
+}

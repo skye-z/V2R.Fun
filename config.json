@@ -1,16 +1,1 @@
-{
-    "client": {},
-    "server": [
-        {
-            "Name": "测试:白嫖节点",
-            "Protocol": "vmess",
-            "Type": "tcp",
-            "Address": "auto.freev2.top",
-            "Port": "56447",
-            "Id": "8907576b-cc77-4d17-bee4-64089e7ae960",
-            "Alter": "64",
-            "Security": "none",
-            "Tls": ""
-        }
-    ]
-}
+{"client":{},"server":[{"Name":"测试节点","Protocol":"vmess","Type":"tcp","Address":"auto.freev2.top","Port":"13049","Id":"80391885-63ec-4ccf-9b91-aa7606d051f5","Alter":"64","Security":"none","Tls":""}]}

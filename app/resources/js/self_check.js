@@ -41,7 +41,6 @@ function SelfCheck() {
 
 // 获取配置列表
 function GetConfigList() {
-    OutLog("加载连接配置<br>");
     $("#line_list").empty();
     BuildConfig(fs.readFileSync(Path_Config, 'utf8'));
 }
@@ -53,7 +52,7 @@ function BuildConfig(Data) {
         if (Configs.server != undefined && Configs.server != "") {
             for (Num in Configs.server) {
                 var Config = Configs.server[Num];
-                $("#line_list").append(`<div class="panel" config="${Config.Name}"><div class="panel-body"><h5><b class="pull-left">${Config.Name}</b><span class="label label-info pull-right">${Config.Type.toUpperCase()}</span></h5><br><p>${Config.Address}:${Config.Port}</p><p><b class="pull-left"><span class="label label-badge">${Config.Protocol.toUpperCase()}</span> <span class="label label-badge label-success">125ms</span></b><a class="btn pull-right"><i class="icon icon-cog"></i></a></p></div></div>`);
+                $("#line_list").append(`<div class="panel" config="${Config.Name}"><div class="panel-body"><h5 class="ck"><b class="pull-left">${Config.Name}</b><span class="label label-info pull-right">${Config.Type.toUpperCase()}</span></h5><br><p class="ck">${Config.Address}:${Config.Port}</p><p><b class="pull-left"><span class="label label-badge">${Config.Protocol.toUpperCase()}</span></b><a class="btn pull-right" href="javascript:;" onclick="Edit('${Config.Name}')"><i class="icon icon-cog"></i></a></p></div></div>`);
             };
             InitPanelAction();
         }

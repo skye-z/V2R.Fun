@@ -19,7 +19,7 @@
                 <a class="btn btn-block active" to="connect"><i class="icon-rocket"></i> 连接</a>
                 <a class="btn btn-block" to="line"><i class="icon-globe"></i> 线路</a>
                 <a class="btn btn-block" to="loger"><i class="icon-dashboard"></i> 日志</a>
-                <a class="btn btn-block"><i class="icon-shield"></i> 规则</a>
+                <a class="btn btn-block"><i class="icon-bug"></i> 爬虫</a>
                 <a class="btn btn-block" to="setup"><i class="icon-cog"></i> 设置</a>
             </div>
             <div id="version">
@@ -53,7 +53,7 @@
                         <a class="btn btn-block btn-primary" data-toggle="dropdown">添加</a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="javascript:;" onclick='$("#line_add").show();'>手动添加</a></li>
-                            <li><a href="###">导入文件</a></li>
+                            <!-- <li><a href="###">导入文件</a></li> -->
                             <li><a href="javascript:;" onclick="import_Qr()">屏幕扫码</a></li>
                         </ul>
                     </div>
@@ -83,7 +83,7 @@
                                 <input type="text" id="add_Port" class="form-control">
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon">UUID</span>
+                                <span class="input-group-addon">Uuid</span>
                                 <input type="text" id="add_Id" class="form-control">
                             </div>
                             <div class="input-group">
@@ -108,14 +108,67 @@
                                 </select>
                             </div>
                         </div>
-                        <a class="btn" id="add_table_cancel">取消</a> <a class="btn btn-primary" id="add">添加</a>
+                        <a class="btn" id="add_table_cancel" onclick="LineAddHide()">取消</a> <a class="btn btn-primary"
+                            id="add">添加</a>
+                    </div>
+                    <div id="line_edit">
+                        <div id="edit_table">
+                            <div class="input-group">
+                                <span class="input-group-addon">名称</span>
+                                <input type="text" id="edit_Name" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">协议</span>
+                                <select id="edit_Protocol" class="form-control">
+                                    <option value="vmess">VMess</option>
+                                </select>
+                                <span class="input-group-addon fix-border fix-padding"></span>
+                                <select id="edit_Type" class="form-control">
+                                    <option value="tcp">TCP</option>
+                                    <option value="kcp">KCP</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">地址</span>
+                                <input type="text" id="edit_Address" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">端口</span>
+                                <input type="text" id="edit_Port" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Uuid</span>
+                                <input type="text" id="edit_Id" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Alter</span>
+                                <input type="text" id="edit_Alter" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">安全</span>
+                                <select id="edit_Security" class="form-control">
+                                    <option value="auto">自动 (auto)</option>
+                                    <option value="none">无 (none)</option>
+                                    <option value="aes-128-cfb">AES-CFB</option>
+                                    <option value="aes-128-gcm">AES-GCM</option>
+                                    <option value="chacha20-poly1305">ChaCha</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">TLS</span>
+                                <select id="edit_Tls" class="form-control">
+                                    <option value="on">启用</option>
+                                    <option value="">停用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <a class="btn" id="edit_table_cancel" onclick="LineEditHide()">取消</a> <a class="btn btn-primary"
+                            id="edit">保存</a> <a class="btn btn-danger" id="remove">移除</a>
                     </div>
                 </div>
                 <div id="model_loger">
                     <h1 class="min_title">日志</h1>
-                    <div id="loger_connect">
-
-                    </div>
+                    <div id="loger_connect"></div>
                 </div>
                 <div id="model_setup">
                     <h1 class="min_title">设置</h1>
@@ -148,6 +201,7 @@
     <script src="resources/js/self_check.js"></script>
     <script src="resources/js/connect.js"></script>
     <script src="resources/js/import.js"></script>
+    <script src="resources/js/edit.js"></script>
     <script src="resources/js/index.js"></script>
 </body>
 

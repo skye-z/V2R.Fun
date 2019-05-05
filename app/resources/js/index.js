@@ -62,8 +62,8 @@ $("#connect").on("click", function () {
 })
 
 function InitPanelAction() {
-    $("#line_list .panel").on("click", function () {
-        var $this = $(this);
+    $("#line_list .panel .ck").on("click", function () {
+        var $this = $(this).parent().parent();
         $("#line_list .panel").removeClass("active");
         $this.addClass("active");
         $("#line_name").text($this.attr("config"));
