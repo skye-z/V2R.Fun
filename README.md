@@ -1,6 +1,8 @@
 # V2r.Fun - 基于V2Ray的可视化代理工具
 
-<div align=center>![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-1.png?raw=true)
+<div align="center">
+![](https://github.com/skai-zhang/V2R.Fun/blob/master/ui-1.png?raw=true)
+</div>
 
 ## 进度
 
