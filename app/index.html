@@ -19,7 +19,7 @@
                 <a class="btn btn-block active" to="connect"><i class="icon-rocket"></i> 连接</a>
                 <a class="btn btn-block" to="line"><i class="icon-globe"></i> 线路</a>
                 <a class="btn btn-block" to="loger"><i class="icon-dashboard"></i> 日志</a>
-                <a class="btn btn-block"><i class="icon-bug"></i> 爬虫</a>
+                <a class="btn btn-block" to="reptile"><i class="icon-bug"></i> 爬虫</a>
                 <a class="btn btn-block" to="setup"><i class="icon-cog"></i> 设置</a>
             </div>
             <div id="version">
@@ -170,6 +170,16 @@
                     <h1 class="min_title">日志</h1>
                     <div id="loger_connect"></div>
                 </div>
+                <div id="model_reptile">
+                    <h1 class="min_title">爬虫</h1>
+                    <div>
+                        <a id="reptile_run" class="btn btn-success" data-loading-text='<i class="icon icon-spin icon-refresh"></i>'>运行</a>
+                        <h3>此功能主要用于获取免费线路</h3>
+                        <p>注意:<br>1. 爬虫采集需要一定的时间<br>2. 采集的免费线路随时可能失效<br>3. 线路失效后运行爬虫更新线路即可<br>4. 任何非自建线路都无法保证安全<br>5. 免费线路来源于互联网<br>6. 运行结束前千万别退出</p>
+                        <h5 style="text-align:center;margin: 25px;">内核: v1.0.1</h5>
+                        <div id="reptile_cache" style="display: none;"></div>
+                    </div>
+                </div>
                 <div id="model_setup">
                     <h1 class="min_title">设置</h1>
                     <div id="setup_table">
@@ -202,6 +212,7 @@
     <script src="resources/js/connect.js"></script>
     <script src="resources/js/import.js"></script>
     <script src="resources/js/edit.js"></script>
+    <script src="resources/js/reptile.js"></script>
     <script src="resources/js/index.js"></script>
 </body>
 

@@ -1,6 +1,6 @@
 {
   "name": "cc.stacks.v2r",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "run.js",
   "author": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "packager": "electron-packager . V2r.Fun --win --out . --arch=x64 --app-version 1.0.0 --overwrite --electron-version=5.0.0 --icon=./logo.ico"
+    "packager": "electron-packager . V2r.Fun --win --out . --arch=x64 --app-version 1.0.1 --overwrite --electron-version=5.0.0 --icon=./logo.ico"
   },
   "license": "GLP-3.0",
   "dependencies": {

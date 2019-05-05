@@ -12,7 +12,6 @@ var MainWindow = null;
 var TrayMenu = [{
     label: '关于',
     click: () => {
-        OpenMinor("关于", "about", false);
     }
 }, {
     label: '退出',
@@ -31,7 +30,7 @@ app.on('ready', () => {
         maximizable: false,
         fullscreenable: false,
         title: 'V2r.Fun v' + Config.version,
-        webPreferences:{
+        webPreferences: {
             nodeIntegration: true
         }
     });
@@ -59,7 +58,7 @@ ipcMain.on('main-open', () => {
         maximizable: false,
         fullscreenable: false,
         title: 'V2r.Fun v' + Config.version,
-        webPreferences:{
+        webPreferences: {
             nodeIntegration: true
         }
     });
@@ -71,7 +70,7 @@ ipcMain.on('main-open', () => {
         MainWindow.show();
     });
     MainWindow.loadURL('file://' + __dirname + '/app/index.html');
-    MainWindow.webContents.openDevTools();
+    // MainWindow.webContents.openDevTools();
     MainWindow.once('ready-to-show', () => {
         MainWindow.show();
         LoadWindow.close();
@@ -81,10 +80,10 @@ ipcMain.on('main-open', () => {
     });
 });
 
-ipcMain.on("main-close",()=>{
+ipcMain.on("main-close", () => {
     MainWindow.close();
 });
 
-ipcMain.on("main-hide",()=>{
+ipcMain.on("main-hide", () => {
     MainWindow.hide();
 });

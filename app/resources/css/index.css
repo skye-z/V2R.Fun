@@ -240,3 +240,16 @@ body>.row>div {
 .ck{
     cursor: pointer;
 }
+
+#reptile_run{
+    margin: 60px;
+    font-size: 25px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+#reptile_run i{
+    font-size: 25px;
+    margin: 7px 14px 6px 14px;
+    color: #F4F4F4;
+}
