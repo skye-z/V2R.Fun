@@ -194,8 +194,12 @@
                         <div class="input-group">
                             <span class="input-group-addon">代理方式</span>
                             <select id="set_type" class="form-control">
-                                <option value="http">全局代理</option>
-                                <option value="socks">PAC代理</option>
+                                <option value="http">代理 - 全局</option>
+                                <!-- <option value="socks">代理 - PAC</option> -->
+                                <!-- <option value="transfer-socks">中转 - SOCKS</option> -->
+                                <option value="transfer-http">中转 - HTTP</option>
+                                <option value="transfer-socks">中转 - SOCKS</option>
+                                <option value="transfer-tg">中转 - Telegram</option>
                             </select>
                         </div>
                     </div>
