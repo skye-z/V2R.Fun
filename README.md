@@ -12,7 +12,7 @@
 
 你可以尝试直接下载源码后使用`npm start`运行.
 
-或者[点此下载](https://github.com/skai-zhang/V2R.Fun/releases/download/build.3/v2r.fun_win_build.4.zip)已编译的Windows64位应用程序.
+或者[点此下载](https://github.com/skai-zhang/V2R.Fun/releases/download/v1.0.2/V2r.Fun_Win_v1.0.2.zip)已编译的Windows64位应用程序.
 
 首次使用需要注意:
 
