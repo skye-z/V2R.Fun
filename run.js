@@ -62,13 +62,13 @@ ipcMain.on('main-open', () => {
             nodeIntegration: true
         }
     });
-    AppTray = new Tray(path.join(__dirname, 'logo.ico'));
-    const MenuContext = Menu.buildFromTemplate(TrayMenu);
-    AppTray.setContextMenu(MenuContext);
-    AppTray.setToolTip('Stakcs Accelerator');
-    AppTray.on("click", () => {
-        MainWindow.show();
-    });
+    // AppTray = new Tray(path.join(__dirname, 'logo.ico'));
+    // const MenuContext = Menu.buildFromTemplate(TrayMenu);
+    // AppTray.setContextMenu(MenuContext);
+    // AppTray.setToolTip('V2r.Fun');
+    // AppTray.on("click", () => {
+    //     MainWindow.show();
+    // });
     MainWindow.loadURL('file://' + __dirname + '/app/index.html');
     // MainWindow.webContents.openDevTools();
     MainWindow.once('ready-to-show', () => {

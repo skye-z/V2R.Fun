@@ -15,7 +15,7 @@
   "dependencies": {
     "adm-zip": "^0.4.13",
     "jimp": "^0.6.4",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "jsqr": "^1.2.0",
     "qrcode-reader": "^1.0.4",
     "request": "^2.88.0",
