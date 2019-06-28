@@ -9,31 +9,16 @@
 </head>
 
 <body style="background-color: #145374;">
-    <h1 style="text-align:center;font-size:40px;margin:48px;color:#F4F4F4;cursor:default;">V2r.Fun</h1>
+    <h1 style="text-align:center;font-size:40px;margin:40px;color:#F4F4F4;cursor:default;">V2r.Fun</h1>
     <div class="progress" style="border-radius:0px;height:3px;margin: 0px;">
         <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
             style="border-radius:0px;background-color:#5588a3;width: 0%">
         </div>
     </div>
+    <p id="Tips" style="color: #bfc5c7;margin: 2px 0px 0px 5px;font-size: 12px;">正在初始化...</p>
     <script>window.$ = window.jQuery = require("jquery");</script>
     <script src="resources/js/zui.min.js"></script>
-    <script>
-        var ipc;
-        var Num = 0;
-        $(function () {
-            ipc = require('electron').ipcRenderer;
-            var Interval = setInterval(function () {
-                if (Num != 100) {
-                    Num++;
-                    $(".progress-bar").css("width", Num + "%");
-                }else{
-                    // 这里写检查程序更新的代码
-                    ipc.send("main-open");
-                    clearInterval(Interval);
-                }
-            }, 50);
-        });
-    </script>
+    <script src="resources/js/load.js"></script>
 </body>
 
 </html>

@@ -47,6 +47,9 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin')
         app.quit();
 })
+app.on('window-closed', () => {
+        app.quit();
+})
 
 ipcMain.on('main-open', () => {
     MainWindow = new BrowserWindow({
@@ -62,15 +65,15 @@ ipcMain.on('main-open', () => {
             nodeIntegration: true
         }
     });
-    // AppTray = new Tray(path.join(__dirname, 'logo.ico'));
-    // const MenuContext = Menu.buildFromTemplate(TrayMenu);
-    // AppTray.setContextMenu(MenuContext);
-    // AppTray.setToolTip('V2r.Fun');
-    // AppTray.on("click", () => {
-    //     MainWindow.show();
-    // });
+    AppTray = new Tray(__dirname+'/logo.png');
+    const MenuContext = Menu.buildFromTemplate(TrayMenu);
+    AppTray.setContextMenu(MenuContext);
+    AppTray.setToolTip('V2r.Fun');
+    AppTray.on("click", () => {
+        MainWindow.show();
+    });
     MainWindow.loadURL('file://' + __dirname + '/app/index.html');
-    // MainWindow.webContents.openDevTools();
+    MainWindow.webContents.openDevTools();
     MainWindow.once('ready-to-show', () => {
         MainWindow.show();
         LoadWindow.close();
@@ -81,7 +84,7 @@ ipcMain.on('main-open', () => {
 });
 
 ipcMain.on("main-close", () => {
-    MainWindow.close();
+    app.quit();
 });
 
 ipcMain.on("main-hide", () => {
