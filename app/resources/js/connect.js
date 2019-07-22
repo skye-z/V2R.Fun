@@ -1,7 +1,7 @@
 var connectProcess;
 
 function Connect(Name) {
-    Open("loger");
+    // Open("loger");
     OutLog("准备连接 -> " + Name + "<br>===========================<br>")
     var File = fs.readFileSync(Path_Config, 'utf8');
     var FileJson = JSON.parse(File);
