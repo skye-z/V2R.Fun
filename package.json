@@ -20,5 +20,8 @@
     "qrcode-reader": "^1.0.4",
     "request": "^2.88.0",
     "screenshot-desktop": "^1.7.0"
+  },
+  "devDependencies": {
+    "electron": "^5.0.7"
   }
 }

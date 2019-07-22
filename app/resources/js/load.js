@@ -26,13 +26,15 @@ $(function () {
                     if (Num == 40) {
                         Tips("正在检查应用版本...");
                         State = false;
-                        $.get("https://raw.githubusercontent.com/skai-zhang/V2R.Fun/master/version", (res) => {
-                            if (parseInt(Version.replace(new RegExp('\\.', "g"), "")) >= parseInt(res.replace(new RegExp('\\.', "g"), ""))) {
-                                Tips("当前已是最新版本: " + Version);
-                                State = true;
-                            } else
-                                Tips("有新的可用版本,请访问Github项目仓库获取更新");
-                        }, "text");
+                        // $.get("https://raw.githubusercontent.com/skai-zhang/V2R.Fun/master/version", (res) => {
+                        //     if (parseInt(Version.replace(new RegExp('\\.', "g"), "")) >= parseInt(res.replace(new RegExp('\\.', "g"), ""))) {
+                        //         Tips("当前已是最新版本: " + Version);
+                        //         State = true;
+                        //     } else
+                        //         Tips("有新的可用版本,请访问Github项目仓库获取更新");
+                        // }, "text");
+						Tips("当前版本为: " + Version);
+						State = true;
                     }
                     if (Num == 60) {
                         QueryLocalCore()
@@ -92,25 +94,26 @@ function QueryLocalCore() {
                         else {
                             Version = Version.substring(Version.indexOf(" ") + 1, Version.indexOf(" ("));
                             Tips("当前内核版本: v" + Version);
-                            try {
-                                $.get("https://github.com/v2ray/v2ray-core/releases", (res) => {
-                                    res = res.substring(res.indexOf("label-latest"));
-                                    res = res.substring(0, res.indexOf("Source code"));
-                                    res = res.substring(res.indexOf("text-normal") + 13);
-                                    res = res.substring(0, res.indexOf("</a>"));
-                                    res = res.substring(res.indexOf(">") + 1);
-                                    res = res.substring(1);
-                                    if (parseInt(Version.replace(new RegExp('\\.', "g"), "")) >= parseInt(res.replace(new RegExp('\\.', "g"), ""))) {
-                                        Tips("当前内核已是最新版本...");
-                                        State = true;
-                                    }else{
-                                        Tips("发现新版本内核,准备启动内核更新程序...");
-                                        DownloadCore();
-                                    }
-                                }, "text");
-                            } catch{
-                                Tips("当前内核已是最新版本...");
-                            }
+                            // try {
+                            //     $.get("https://github.com/v2ray/v2ray-core/releases", (res) => {
+                            //         res = res.substring(res.indexOf("label-latest"));
+                            //         res = res.substring(0, res.indexOf("Source code"));
+                            //         res = res.substring(res.indexOf("text-normal") + 13);
+                            //         res = res.substring(0, res.indexOf("</a>"));
+                            //         res = res.substring(res.indexOf(">") + 1);
+                            //         res = res.substring(1);
+                            //         if (parseInt(Version.replace(new RegExp('\\.', "g"), "")) >= parseInt(res.replace(new RegExp('\\.', "g"), ""))) {
+                            //             Tips("当前内核已是最新版本...");
+                            //             State = true;
+                            //         }else{
+                            //             Tips("发现新版本内核,准备启动内核更新程序...");
+                            //             DownloadCore();
+                            //         }
+                            //     }, "text");
+                            // } catch{
+                            //     Tips("当前内核已是最新版本...");
+                            // }
+							State = true;
                         }
                     } catch{
                         Tips("程序错误,进程中断");
